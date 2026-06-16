@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clientes - Pizzaria Vitoriana</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/admin.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+
+    <div class="container-admin">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <img src="../midia/imagens/logo.png"
+                    alt="Logo">
+
+                <h2>
+                    Pizzaria Vitoriana
+                </h2>
+
+            </div>
+
+            <nav class="menu">
+
+                <a href="admin.html">
+
+                    <i class="bi bi-grid-fill"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+                <a href="pedidos.html">
+
+                    <i class="bi bi-bag-fill"></i>
+
+                    <span>
+                        Pedidos
+                    </span>
+
+                </a>
+
+                <a href="produtos.html">
+
+                    <i class="bi bi-box-seam-fill"></i>
+
+                    <span>
+                        Produtos
+                    </span>
+
+                </a>
+
+                <a href="clientes.html"
+                    class="active">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <span>
+                        Clientes
+                    </span>
+
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="dashboard">
+
+            <!-- TOPO -->
+            <div class="top-dashboard">
+
+                <div>
+
+                    <h1>
+                        Clientes
+                    </h1>
+
+                    <p>
+                        Gerencie os clientes cadastrados
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="cards">
+
+                <div class="card-admin">
+
+                    <div class="card-top">
+
+                        <h3>
+                            Total de Clientes
+                        </h3>
+
+                        <i class="bi bi-people-fill"></i>
+
+                    </div>
+
+                    <span id="totalClientes">
+                        0
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- TABELA -->
+<!-- TABELA -->
+<div class="tabela">
+
+    <div class="titulo-tabela">
+
+        <h2>
+            Clientes Cadastrados
+        </h2>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table table-dark align-middle">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Nome</th>
+
+                    <th>Telefone</th>
+
+                    <th>Endereço</th>
+
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="listaClientes">
+
+                <tr>
+
+                    <td colspan="5" class="sem-pedidos">
+
+                        Carregando clientes...
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+
+        const API_URL = "http://localhost:8081/clientes";
+
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+
+            window.location.href = 'login.html';
+
+        }
+
+        async function carregarClientes() {
+
+            try {
+
+                const response = await fetch(API_URL);
+
+                const clientes = await response.json();
+
+                document.getElementById('totalClientes').textContent = clientes.length;
+
+                const tbody = document.getElementById('listaClientes');
+
+                tbody.innerHTML = '';
+
+                if (clientes.length === 0) {
+
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="5" class="sem-pedidos">
+                                Nenhum cliente cadastrado.
+                            </td>
+                        </tr>
+                    `;
+
+                    return;
+                }
+
+                clientes.forEach(c => {
+
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${c.id}</td>
+                            <td>${c.nome}</td>
+                            <td>${c.telefone}</td>
+                            <td>${c.endereco}, ${c.bairro}</td>
+                            <td>
+                                <button
+                                    onclick="excluirCliente(${c.id})"
+                                    class="btn-status">
+                                    Excluir
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+
+                });
+
+            } catch (error) {
+
+                console.error(error);
+
+                document.getElementById('listaClientes').innerHTML = `
+                    <tr>
+                        <td colspan="5" class="sem-pedidos">
+                            Erro ao carregar clientes.
+                        </td>
+                    </tr>
+                `;
+
+            }
+
+        }
+
+        async function excluirCliente(id) {
+
+            const confirmar = confirm(
+                'Deseja excluir este cliente? Esta ação não poderá ser desfeita.'
+            );
+
+            if (!confirmar) return;
+
+            try {
+
+                await fetch(`${API_URL}/${id}`, {
+                    method: 'DELETE'
+                });
+
+                carregarClientes();
+
+            } catch (error) {
+
+                console.error(error);
+
+                alert('Erro ao excluir cliente.');
+
+            }
+
+        }
+
+        carregarClientes();
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,740 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    background-color: #f5f5f5;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #111110;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5rem;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img{
+    width: 65px;
+    height: auto;
+    cursor: pointer;
+}
+
+.logo h3{
+    color: white;
+    font-size: 2.2rem;
+}
+
+nav{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#list-menu{
+    display: flex;
+    gap: 4rem;
+}
+
+#list-menu a{
+    color: white;
+    font-size: 2rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+#list-menu a:hover{
+    color: #d62828;
+}
+
+.slider{
+    margin-top: 80px;
+    width:100%;
+    height:500px;
+    overflow:hidden;
+    position:relative;
+    z-index: 1;
+}
+
+/* AREA DOS SLIDES */
+
+.slides{
+    display:flex;
+    width:300%;
+    height:100%;
+    transition:0.8s ease-in-out;
+}
+
+/* CADA SLIDE */
+
+.slide{
+    width:100vw;
+    height:100%;
+    flex-shrink:0;
+    position:relative;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* TEXTO */
+
+.content{
+    position:absolute;
+    top:50%;
+    left:8%;
+    transform:translateY(-50%);
+    color:white;
+}
+
+.content h1{
+    font-size:5rem;
+    margin-bottom:1rem;
+}
+
+.content p{
+    font-size:2rem;
+}
+
+/* BOTÕES */
+
+.buttons{
+    position:absolute;
+    width:100%;
+    top:50%;
+    display:flex;
+    justify-content:space-between;
+    padding:0 2rem;
+    transform:translateY(-50%);
+}
+
+.buttons button{
+    background:rgba(0,0,0,0.5);
+    color:white;
+    border:none;
+    font-size:3rem;
+    padding:1rem 2rem;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+.sobrenos{
+    width: 100%;
+    min-height: 500px;
+
+    background-color: #111110;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 5rem;
+    gap: 5rem;
+}
+
+/* TEXTO */
+
+.texto-sobre{
+    width: 45%;
+}
+
+.texto-sobre h1{
+    font-size: 5rem;
+    margin-bottom: 0.5rem;
+}
+
+.texto-sobre p{
+    font-size: 2rem;
+    line-height: 3.5rem;
+}
+
+/* IMAGEM */
+
+.sobrenos img{
+    width: 550px;
+    height: 400px;
+    background-attachment: cover;
+    border-radius: 20px;
+}
+
+/* CARDÁPIO */
+
+.cardapio{
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #111110;
+
+    padding: 8rem 5rem;
+}
+
+.titulo-cardapio{
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+
+    margin-bottom: 5rem;
+}
+
+/* CONTAINER */
+
+.container-pizzas{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+
+    flex-wrap: wrap;
+}
+
+/* CARD */
+
+.pizza-card{
+    width: 320px;
+
+    background-color: #252525;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.pizza-card:hover{
+    transform: translateY(-10px);
+}
+
+/* IMAGEM */
+
+.pizza-card img{
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+}
+
+/* TEXTO */
+
+.pizza-card h2{
+    color: white;
+    font-size: 2.8rem;
+
+    padding: 2rem 2rem 1rem;
+}
+
+.pizza-card p{
+    color: #d1d1d1;
+
+    font-size: 1.7rem;
+
+    padding: 0 2rem;
+
+    line-height: 2.7rem;
+}
+
+/* PREÇO */
+
+.pizza-card span{
+    display: block;
+
+    color: #d62828;
+
+    font-size: 2.5rem;
+    font-weight: bold;
+
+    padding: 2rem;
+}
+
+/* BOTÃO */
+
+.pizza-card button{
+    width: calc(100% - 4rem);
+
+    margin: 0 2rem 2rem;
+
+    padding: 1.5rem;
+
+    border: none;
+
+    background-color: #d62828;
+
+    color: white;
+
+    font-size: 1.7rem;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.pizza-card button:hover{
+    background-color: #b71c1c;
+}
+
+/* MODAL */
+
+.modal-pizza{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.7);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+/* CONTEÚDO */
+
+.modal-content{
+    width: 700px;
+    max-height: 90vh;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 3rem;
+
+    overflow-y: auto;
+
+    position: relative;
+}
+
+/* FECHAR */
+
+.fechar{
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    background: none;
+
+    border: none;
+
+    font-size: 2.5rem;
+
+    cursor: pointer;
+}
+
+/* TÍTULOS */
+
+.modal-content h1{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.descricao{
+    font-size: 1.7rem;
+    margin-bottom: 3rem;
+}
+
+/* GRUPOS */
+
+.grupo{
+    margin-bottom: 3rem;
+}
+
+.grupo h2{
+    font-size: 2.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.grupo label{
+    display: block;
+
+    font-size: 1.8rem;
+
+    margin-bottom: 1rem;
+}
+
+/* SELECT */
+
+select,
+textarea{
+    width: 100%;
+
+    padding: 1.5rem;
+
+    font-size: 1.6rem;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+}
+
+/* TOTAL */
+
+.total{
+    font-size: 3rem;
+    font-weight: bold;
+
+    margin-bottom: 3rem;
+}
+
+/* BOTÃO */
+
+.btn-finalizar{
+    width: 100%;
+
+    padding: 2rem;
+
+    background: #d62828;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+/* CARRINHO */
+
+.carrinho{
+    position: fixed;
+
+    top: 0;
+    right: -450px;
+
+    width: 420px;
+    height: 100vh;
+
+    background: white;
+
+    z-index: 99999;
+
+    transition: 0.4s;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+}
+
+/* ABRIR */
+
+.carrinho.ativo{
+    right: 0;
+}
+
+/* TOPO */
+
+.topo-carrinho{
+    padding: 2rem;
+
+    background: #111110;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topo-carrinho h1{
+    font-size: 2.5rem;
+}
+
+.topo-carrinho button{
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+/* ITENS */
+
+#itensCarrinho{
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 2rem;
+}
+
+/* ITEM */
+
+.item-carrinho{
+    border-bottom: 1px solid #ddd;
+
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.item-carrinho h3{
+    font-size: 2rem;
+}
+
+.item-carrinho p{
+    font-size: 1.6rem;
+    color: #555;
+}
+
+.item-carrinho span{
+    font-size: 2rem;
+    font-weight: bold;
+
+    color: #d62828;
+}
+
+/* RODAPÉ */
+
+.rodape-carrinho{
+    padding: 2rem;
+
+    border-top: 1px solid #ddd;
+}
+
+.rodape-carrinho h2{
+    font-size: 2.5rem;
+
+    margin-bottom: 2rem;
+}
+
+/* BOTÃO */
+
+.btn-pagamento{
+    width: 100%;
+
+    padding: 1.8rem;
+
+    border: none;
+
+    background: #d62828;
+
+    color: white;
+
+    font-size: 1.8rem;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.item-carrinho button{
+
+    width: 100%;
+
+    margin-top: 1.5rem;
+
+    padding: 1rem;
+
+    border: none;
+
+    background-color: #b71c1c;
+
+    color: white;
+
+    font-size: 1.5rem;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.item-carrinho button:hover{
+
+    background-color: #8f1515;
+
+}
+
+footer{
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+}
+
+/* =========================
+   MENU MOBILE
+========================== */
+
+.menu-mobile{
+
+    display: none;
+
+    font-size: 3.5rem;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVO
+========================== */
+
+@media(max-width: 768px){
+
+    header{
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 0 2rem;
+
+        height: 80px;
+
+        z-index: 100000;
+    }
+
+    .menu-mobile{
+
+        display: block;
+
+        font-size: 3rem;
+
+        color: white;
+
+        cursor: pointer;
+    }
+
+    nav{
+
+        position: fixed;
+
+        top: 80px;
+
+        right: -100%;
+
+        width: 280px;
+
+        height: calc(100vh - 80px);
+
+        background-color: #111110;
+
+        transition: 0.4s ease;
+
+        z-index: 99999;
+
+        left: auto;
+
+        transform: none;
+
+        display: flex;
+
+        justify-content: flex-start;
+
+        align-items: flex-start;
+    }
+
+    nav.ativo{
+
+        right: 0;
+    }
+
+    #list-menu{
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        padding: 4rem 2rem;
+
+        gap: 3rem;
+    }
+
+    #list-menu li{
+
+        width: 100%;
+    }
+
+    #list-menu a{
+
+        display: block;
+
+        width: 100%;
+
+        font-size: 2rem;
+
+        padding: 1rem 0;
+    }
+
+    .slider{
+
+        margin-top: 80px;
+
+        z-index: 1;
+    }
+
+    .sobrenos{
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 5rem 2rem;
+    }
+
+    .texto-sobre{
+
+        width: 100%;
+    }
+
+    .sobrenos img{
+
+        width: 100%;
+
+        max-width: 400px;
+
+        height: auto;
+    }
+
+}

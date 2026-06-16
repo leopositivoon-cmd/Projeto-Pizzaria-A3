@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrativo - Pizzaria</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+    <div class="login-container">
+
+        <!-- LADO ESQUERDO -->
+        <div class="login-box">
+            <h2>Login Pizarria Vitoriana</h2>
+
+            <form id="loginForm">
+<div class="form-group">
+    <label for="username">Usuário</label>
+    <input
+        type="text"
+        id="username"
+        placeholder="Usuário"
+        required
+    >
+</div>
+
+<div class="form-group">
+    <label for="password">Senha</label>
+    <input
+        type="password"
+        id="password"
+        placeholder="Senha"
+        required
+    >
+</div>
+
+                <button type="submit" class="btn-login">
+                    Entrar
+                </button>
+            </form>
+        </div>
+
+        <div class="banner-login">
+            <div class="overlay">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const login = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch("http://localhost:8080/auth/login", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ login, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('token', data.token);
+                    window.location.href = 'admin.html';
+                } else {
+                    alert("Usuário ou senha incorretos.");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Erro ao conectar com o servidor.");
+            }
+        });
+    </script>
+
+</body>
+</html>

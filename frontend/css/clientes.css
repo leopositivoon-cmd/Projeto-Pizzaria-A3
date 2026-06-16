@@ -1,0 +1,35 @@
+@import url('admin.css');
+#totalClientes{
+    color: white;
+}
+
+.btn-status{
+    background-color: #d62828;
+}
+
+.btn-status:hover{
+    background-color: #b71c1c;
+}
+
+.tabela table {
+    width: 100%;
+    border-collapse: collapse !important;
+}
+
+.tabela thead,
+.tabela tbody,
+.tabela tr {
+    display: table-row-group;
+}
+
+.tabela tr {
+    display: table-row;
+}
+
+.tabela th,
+.tabela td {
+    display: table-cell;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    vertical-align: middle;
+}

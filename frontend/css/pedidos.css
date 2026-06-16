@@ -1,0 +1,479 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    list-style: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   BODY
+========================== */
+
+body{
+
+    background-color: #111110;
+
+    color: #f5f5f5;
+}
+
+/* =========================
+   CONTAINER
+========================== */
+
+.container-admin{
+
+    display: flex;
+
+    min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+
+    width: 280px;
+
+    background-color: #181818;
+
+    border-right: 1px solid #2b2b2b;
+
+    padding: 2rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4rem;
+}
+
+/* =========================
+   LOGO
+========================== */
+
+.logo{
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.logo img{
+
+    border-radius: 50%;
+
+    width: 55px;
+
+    border: 2px solid #d62828;
+}
+
+.logo h2{
+
+    font-size: 1.7rem;
+
+    font-weight: bold;
+}
+
+/* =========================
+   MENU
+========================== */
+
+.menu{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.menu a{
+
+    padding: 1.3rem;
+
+    border-radius: 12px;
+
+    color: #cfcfcf;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    transition: 0.3s;
+
+    font-size: 1rem;
+
+    text-decoration: none;
+}
+
+.menu a i{
+
+    font-size: 1.7rem;
+}
+
+/* HOVER */
+
+.menu a:hover{
+
+    background-color: #d62828;
+
+    color: white;
+
+    transform: translateX(5px);
+}
+
+/* ATIVO */
+
+.menu .active{
+
+    background-color: #d62828;
+
+    color: white;
+
+    box-shadow: 0 0 15px rgba(214, 40, 40, 0.4);
+}
+
+/* =========================
+   PEDIDOS
+========================== */
+
+.pedidos{
+
+    flex: 1;
+
+    padding: 3rem;
+
+    background-color: #111110;
+}
+
+/* =========================
+   TOPO
+========================== */
+
+.top-pedidos{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 3rem;
+}
+
+.top-pedidos h1{
+
+    font-size: 3rem;
+
+    color: white;
+
+    margin-bottom: 0rem;
+}
+
+/* =========================
+   BUSCA
+========================== */
+
+.busca{
+
+    width: 320px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    background-color: #1a1a1a;
+
+    padding: 1rem 1.5rem;
+
+    border-radius: 12px;
+
+    border: 1px solid #2d2d2d;
+}
+
+.busca i{
+
+    color: #d62828;
+
+    font-size: 1.3rem;
+}
+
+.busca input{
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+}
+
+.busca input::placeholder{
+
+    color: #888;
+}
+
+/* =========================
+   TABELA
+========================== */
+
+.tabela-pedidos{
+
+    background-color: #1a1a1a;
+
+    border: 1px solid #2a2a2a;
+
+    padding: 2rem;
+
+    border-radius: 18px;
+
+    overflow-x: auto;
+
+    color: white;
+}
+
+table{
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th,
+td{
+
+    padding: 1.5rem;
+
+    text-align: left;
+}
+
+th{
+
+    color: #d62828;
+
+    border-bottom: 1px solid #2d2d2d;
+}
+
+td{
+
+    border-bottom: 1px solid #222;
+}
+
+/* =========================
+   STATUS
+========================== */
+
+.status{
+
+    padding: 0.6rem 1.2rem;
+
+    border-radius: 8px;
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+}
+
+.preparo{
+
+    background-color: #d62828;
+
+    color: white;
+}
+
+.entregue{
+
+    background-color: #252525;
+
+    border: 1px solid #444;
+
+    color: white;
+}
+
+.cancelado{
+
+    background-color: #5c1a1a;
+
+    color: white;
+}
+
+/* =========================
+   AÇÕES
+========================== */
+
+.acoes{
+
+    display: flex;
+
+    gap: 1rem;
+}
+
+/* BOTÕES */
+
+.btn-status,
+.btn-excluir{
+
+    border: none;
+
+    padding: 0.8rem 1.5rem;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    color: white;
+}
+
+.btn-status{
+
+    background-color: #d62828;
+}
+
+.btn-status:hover{
+
+    background-color: #b71c1c;
+}
+
+.btn-excluir{
+
+    background-color: #252525;
+
+    border: 1px solid #444;
+}
+
+.btn-excluir:hover{
+
+    background-color: #3a3a3a;
+}
+
+/* =========================
+   SEM PEDIDOS
+========================== */
+
+.sem-pedidos{
+
+    text-align: center;
+
+    padding: 3rem;
+
+    color: #ffffff;
+}
+
+/* =========================
+   RESPONSIVO
+========================== */
+
+@media(max-width: 992px){
+
+    .top-pedidos{
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 2rem;
+    }
+
+    .busca{
+
+        width: 100%;
+    }
+
+}
+
+@media(max-width: 768px){
+
+    .container-admin{
+
+        flex-direction: column;
+    }
+
+    .sidebar{
+
+        width: 100%;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 2rem;
+
+        padding: 1.5rem;
+    }
+
+    .menu{
+
+        flex-direction: row;
+
+        overflow-x: auto;
+
+        gap: 1rem;
+    }
+
+    .menu a{
+
+        min-width: max-content;
+    }
+
+    .pedidos{
+
+        padding: 2rem;
+    }
+
+}
+
+@media(max-width: 500px){
+
+    .logo h2{
+
+        display: none;
+    }
+
+    .menu a span{
+
+        display: none;
+    }
+
+    .menu a{
+
+        justify-content: center;
+    }
+
+    .acoes{
+
+        flex-direction: column;
+    }
+
+}
+
+.select-status {
+    padding: 6px 10px;
+    border: 1px solid #131313;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 160px;
+    font-size: 14px;
+    background-color: #111110;
+    color: white;
+}

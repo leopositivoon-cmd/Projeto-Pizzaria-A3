@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    <link rel="stylesheet" href="../css/checkout.css">
+</head>
+
+<body>
+
+    <div class="checkout-container">
+
+        <!-- =========================
+             DADOS DE ENTREGA
+        ========================== -->
+
+        <div class="dados-entrega">
+
+            <h1>Dados para Entrega</h1>
+
+            <input class="input" type="text" id="nomeCliente" placeholder="Seu nome">
+
+            <input class="input" type="text" id="telefoneCliente" placeholder="Telefone">
+
+            <input class="input" type="text" id="enderecoCliente" placeholder="Endereço">
+
+            <input class="input" type="text" id="bairroCliente" placeholder="Bairro">
+
+            <textarea class="input" id="referenciaCliente"
+                placeholder="Ponto de referência"></textarea>
+
+            <!-- PAGAMENTO -->
+
+            <h2>Forma de pagamento</h2>
+
+            <select class="input" id="formaPagamento">
+                <option value="">Selecione</option>
+                <option value="Pix">Pix</option>
+                <option value="Cartão">Cartão</option>
+                <option value="Dinheiro">Dinheiro</option>
+            </select>
+
+        </div>
+
+        <!-- =========================
+             RESUMO DO PEDIDO
+        ========================== -->
+
+        <div class="resumo-checkout">
+
+            <h1>Resumo do Pedido</h1>
+
+            <div id="resumoPedido" class="resumo-pedido"></div>
+
+            <h2 class="total">
+                Total:
+                <span id="totalCheckout">R$ 0,00</span>
+            </h2>
+
+            <button class="btn-finalizar" onclick="finalizarPedido()">
+                Finalizar Pedido
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="../js/checkout.js"></script>
+
+</body>
+
+</html>

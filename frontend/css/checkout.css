@@ -1,0 +1,110 @@
+body{
+    background-color: #111110;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.checkout-container {
+    display: flex;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.dados-entrega,
+.resumo-checkout {
+    flex: 1;
+    background: #111110;
+    padding: 2rem;
+    border-radius: 12px;
+    border: solid 1px white;
+}
+
+.input {
+    width: 95%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #111110;
+    color: white;
+    
+}
+
+.resumo-pedido {
+    margin: 2rem 0;
+}
+
+.item-checkout {
+    border-bottom: 1px solid white;
+    padding: 1rem 0;
+}
+
+.total {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.btn-finalizar {
+    width: 100%;
+    padding: 1.5rem;
+    background: #d62828;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+
+    .checkout-container {
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .checkout-container {
+        flex-direction: column;
+    }
+
+    .dados-entrega,
+    .resumo-checkout {
+        width: 100%;
+    }
+
+    .input {
+        width: 95%;
+    }
+
+    .total {
+        text-align: center;
+    }
+
+    .btn-finalizar {
+        font-size: 1.6rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .checkout-container {
+        padding: 1rem;
+    }
+
+    .dados-entrega,
+    .resumo-checkout {
+        padding: 1.5rem;
+    }
+
+    .input {
+        font-size: 1.4rem;
+    }
+
+    .total {
+        font-size: 1.6rem;
+    }
+
+}

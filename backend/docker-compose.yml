@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-pizzaria
+    environment:
+      MYSQL_ROOT_PASSWORD: senha
+      MYSQL_DATABASE: pizzaria
+    ports:
+      - "3306:3306"
+    networks:
+      - pizzaria-network
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  cliente-service:
+    build: ./cliente-service
+    container_name: cliente-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/pizzaria
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - pizzaria-network
+
+  produto-service:
+    build: ./produto-service
+    container_name: produto-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/pizzaria
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - pizzaria-network
+
+  pedido-service:
+    build: ./pedido-service
+    container_name: pedido-service
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/pizzaria
+    depends_on:
+      mysql:
+        condition: service_healthy
+      cliente-service:
+        condition: service_started
+    networks:
+      - pizzaria-network
+
+networks:
+  pizzaria-network:
+    driver: bridge
